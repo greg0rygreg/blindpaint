@@ -11,3 +11,5 @@ go to releases or compile it yourself
 go mod tidy
 go build -o blindpaint
 ```
+
+i TOTALLY didn't use chatgpt for this 🧌
