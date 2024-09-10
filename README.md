@@ -11,3 +11,6 @@ go to releases or compile it yourself
 go mod tidy
 go build -o blindpaint
 ```
+
+## other notes
+this was added as a way of ~~messing around and finding out but for painting~~ painting for unriced arch linux users
