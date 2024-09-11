@@ -7,7 +7,8 @@ you press 1, then uhhh, insert canvas size like `3,3`, press 1 again, yapyapyap 
 
 ## installation
 go to releases or compile it yourself
-```
+```bash
+git clone 
 go mod tidy
 go build -o blindpaint
 ```
