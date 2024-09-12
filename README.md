@@ -20,3 +20,6 @@ this was made as a way of ~~messing around and finding out but for painting~~ pa
 this ISN'T a virus, don't listen to media people. blindpaint is virus free, here's the windows x64 executable sha1sum hash if you want to check it yourself: `254d7d0161bd60304f72ee73735c0b4a3a7f3e8a`
 
 join our discord server! [here](https://discord.gg/c2KTVEgxBn), it's NOT a scam site, it's actual discord.
+
+## future notes
+if blindpaint ever gets cancelled, a DLL/`.so` file will be made so that YOU can remake blindpaint in other languages, like python (by using ctypes)!
