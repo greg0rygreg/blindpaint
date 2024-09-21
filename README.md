@@ -13,6 +13,8 @@ cd blindpaint
 go mod tidy
 go build -o blindpaint
 ```
+or use the newly added shared object (`so`) library that i've prepared for 1.0! [here](https://github.com/greg0rygreg/blindpaint/tree/main/dllsource "dllsource folder")
+
 
 ## other notes
 this was made as a way of ~~messing around and finding out but for painting~~ painting for unriced arch linux users
