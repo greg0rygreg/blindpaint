@@ -1,8 +1,8 @@
 // please excuse me for the horrors i've written to make this dll
-// and also that i switched to C++ it's just higher-end and easier to use
 #include <iostream>
 #include <fstream>
 #include <vector>
+
 
 namespace blindpaint {
     std::vector<std::vector<int>> makeCanvas(int rows, int cols) {
@@ -34,7 +34,7 @@ namespace blindpaint {
     }
     
     void fillRegion(std::vector<std::vector<int>> &canvas, int x1, int y1, int x2, int y2, int val) {
-        // yes i used ChatGPT to make this (don't blame me it's 2 hours before midnight as of writing)
+        // yes i used ChatGPT to make this (don't blame me it's 2 hours before midnight as of writing (september 21st 2024 10:23 PM))
         if (val >= 2 || val < 0) {
             std::cerr << "\x1b[1;31merror:\x1b[39m unknown pixel value of " << val << " detected \x1b[0m\n";
         }
