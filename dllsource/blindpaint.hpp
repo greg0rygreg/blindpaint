@@ -12,7 +12,7 @@
 */
 namespace blindpaint {
     /*
-    * @brief returns a canvas with size `rows,cols` to be used by other functions
+    * @brief create a canvas with size `rows,cols` to be used by other functions
     *
     * this function will return a new canvas with `rows` rows and `cols` columns,
     * can be used multiple times in order to make multiple canvases.
@@ -51,7 +51,7 @@ namespace blindpaint {
     * keep in mind that `val` only takes 0 or 1,
     * and `x#` and `y#` parameters will stay inbound relative to the specified canvas.
     * 
-    * @param canvas the canvas to export
+    * @param canvas the canvas to paint the area
     * @param x1 starting x position
     * @param y1 starting y position
     * @param x2 ending x position

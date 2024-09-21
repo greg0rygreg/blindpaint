@@ -3,7 +3,6 @@
 #include <fstream>
 #include <vector>
 
-
 namespace blindpaint {
     std::vector<std::vector<int>> makeCanvas(int rows, int cols) {
         std::vector<std::vector<int>> canvas(rows, std::vector<int>(cols, 0));
@@ -58,11 +57,13 @@ namespace blindpaint {
     }
 }
 
-// !
-
-// hi
-
-// if you want to export this file yourself, run this command:
-// g++ -shared -fPIC -o blindpaint.so blindpaint_so.cpp
-
-// or if on windows, change "so" in "blindpaint.so" to "dll"
+/* 
+* !
+*
+* hi
+*
+* if you want to export this file yourself, run this command:
+* g++ -shared -fPIC -o blindpaint.so blindpaint_so.cpp
+*
+* or if on windows, change "so" in "blindpaint.so" to "dll"
+*/
