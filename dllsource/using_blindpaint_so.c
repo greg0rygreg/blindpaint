@@ -12,7 +12,7 @@ void freeCanvas(int **canvas, int cols);
 //then make a main() func
 int main() {
     // this is required for later functions, define the amount of rows and columns
-    int row = 3, col = 3;
+    int row = 10, col = 10;
     // make a canvas with the previously defined variables
     int **canvas = makeCanvas(row,col);
     // check if it's null and return exit code 1 if true
@@ -26,7 +26,7 @@ int main() {
     paintPixel(canvas, 2,2, 1);
 
     // export the canvas
-    exportCanvas(canvas, 3, 3, "example.txt");
+    exportCanvas(canvas, row, col, "example.txt");
 
     // IMPORTANT!!! free the allocated memory for the canvas (so your app doesn't cause a memory leak when used continuously)
     freeCanvas(canvas, col);
