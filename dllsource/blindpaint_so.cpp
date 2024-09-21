@@ -10,20 +10,17 @@ extern "C" {
         return canvas;
     }
 
-    int paintPixel(std::vector<std::vector<int>>& canvas, int x, int y, int val) {
+    void paintPixel(std::vector<std::vector<int>>& canvas, int x, int y, int val) {
         if (val >= 2 || val < 0) {
             std::cerr << "\x1b[1;31merror:\x1b[39m incorrectly painted pixel detected (" << x << "," << y << " with " << val << ") \x1b[0m\n";
-            return 1;
         }
         canvas[x][y] = val;
-        return 0;
     }
 
-    int exportCanvas(const std::vector<std::vector<int>>& canvas, const std::string& filename) {
+    void exportCanvas(const std::vector<std::vector<int>>& canvas, const std::string& filename) {
         std::ofstream file(filename);
         if (!file.is_open()) {
             std::cerr << "\x1b[1;31merror:\x1b[39m exporting canvas to file " << filename << " failed \x1b[0m\n";
-            return 1;
         }
 
         file << "(tip: use a font that has letters with the same width!)\n\n";
@@ -38,7 +35,6 @@ extern "C" {
             file << "\n";
         }
         file << "time created: not yet implemented!\nmade by: a very awesome person\n";
-        return 0;
     }
 }
 

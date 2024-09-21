@@ -26,5 +26,5 @@ int main() {
 }
 
 // then, compile this using the following command:
-// g++ -o example_binary using_blindpaint_dll.c ./blindpaint.so
+// g++ -o example_binary using_blindpaint_so.cpp ./blindpaint.so
 // DO NOT FORGET TO PUT THE BLINDPAINT LIB IN THE SAME DIRECTORY AS OF THE MAIN SOURCE FILE!!!
