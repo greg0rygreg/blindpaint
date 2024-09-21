@@ -27,7 +27,7 @@ blindpaint.paintPixel(canvas, 2,1, 1)
 blindpaint.paintPixel(canvas, 2,2, 1)
 # (these make a face just like in the C variant of this script)
 
-# save the canvas (for some weird reason you CAN'T use more than 1 char for the filename)
+# save the canvas (for some weird reason you CAN'T use more than 1 char for the filename or else it'll save as "c" (atleast when the first char is "c"))
 blindpaint.exportCanvas(canvas, row, col, "cujh.txt")
 
 # IMPORTANT!!! free the reserved memory for the canvas after everything

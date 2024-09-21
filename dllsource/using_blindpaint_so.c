@@ -12,7 +12,7 @@ void freeCanvas(int **canvas, int cols);
 //then make a main() func
 int main() {
     // this is required for later functions, define the amount of rows and columns
-    int row = 10, col = 10;
+    int row = 3, col = 3;
     // make a canvas with the previously defined variables
     int **canvas = makeCanvas(row,col);
     // check if it's null and return exit code 1 if true
