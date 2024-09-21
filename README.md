@@ -17,7 +17,7 @@ go build -o blindpaint
 ## other notes
 this was made as a way of ~~messing around and finding out but for painting~~ painting for unriced arch linux users
 
-this ISN'T a virus, don't listen to media people. blindpaint is virus free, here's the windows x64 executable sha1sum hash as of pre3 if you want to check it yourself: `254d7d0161bd60304f72ee73735c0b4a3a7f3e8a`
+this ISN'T a virus, don't listen to media people. blindpaint is virus free, here's the windows x64 executable sha1sum hash as of 1.0 if you want to check it yourself: `bc1e5a05a178cb4582a5159c83b7f05e31c9f60e`
 
 join our discord server! [here](https://discord.gg/c2KTVEgxBn), it's NOT a scam site, it's actual discord.
 
