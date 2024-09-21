@@ -6,7 +6,6 @@ import (
 	"image/color"
 	"math/rand"
 	"os"
-	"os/user"
 	"path/filepath"
 	"runtime"
 	"strconv"
@@ -48,7 +47,7 @@ func sep() {
 
 func title(name any) {
 	title2 := fmt.Sprint(name)
-	fmt.Printf("\x1b]0;" + title2 + "\007")
+	fmt.Printf("\x1b]2;" + title2 + "\007")
 }
 
 func inargs(arg1 string, arg2 string) bool {
@@ -66,7 +65,9 @@ func main() {
 -d --debug          debug mode, print the list of pixels on save`)
 		os.Exit(0)
 	}
-	VERSION := "pre3"
+	// god knows when 2.0 will release
+	VERSION := "1.0"
+
 	var HOME string
 	if runtime.GOOS == "windows" {
 		HOME = os.Getenv("APPDATA")
@@ -80,12 +81,11 @@ func main() {
 		blindpaint_appdata_dir = filepath.Join(HOME, ".blindpaint")
 	}
 	os.MkdirAll(blindpaint_appdata_dir, os.ModePerm)
-
 	byemsgs := []string{"bye!", "cya : )", ":3", "...",
 		"i hope you painted something. i have no idea if you did. i just hope you did.", "see you next time!", "thanks for using this console app!",
-		"i'm surprised someone actually downloads from my (greg) repos.", "keep blindpainting! i'm sure you'll get better : )",
+		"i'm surprised someone actually downloads from my (greg) repos.", "keep blindpainting! i'm sure you'll get better : )", "don't forget to join our discord!",
 		"don't use this app if you're tired! you might end up falling asleep."}
-	welcomemsgs := []string{"welcome back to", "did you train your blindpainting skills? anyway, welcome back to", "...", ":3",
+	welcomemsgs := []string{"welcome back to", "did you train your blindpainting skills? anyway, welcome back to", "...", ":3", "press 2 to get the invite for our discord!",
 		"you learned how it works yet? welcome back to", "welcome back to blindpai- oh sorry i didn't notice the logo was below me... mistakes happen : )\nanyway, welcome back to",
 	}
 	randomBye := rand.Intn(len(byemsgs))
@@ -114,7 +114,7 @@ func main() {
 		// why.
 		fmt.Printf(`╭╮ ╭╮      ╭╮   a greg╭╮project.
 ││ ││      ││        ╭╯╰╮
-│╰─┤│╭┬──┬─╯├──┬──┬┬─┴╮╭╯©️
+│╰─┤│╭┬──┬─╯├──┬──┬┬─┴╮╭╯(c)
 │╭╮││├┤╭╮│╭╮│╭╮│╭╮├┤╭╮││
 │╰╯│╰┤││││╰╯│╰╯│╭╮│││││╰╮╭╮
 ├──┴─┴┴╯╰┴──┤╭─┴╯╰┴┴╯╰┴─╯╰╯
@@ -143,8 +143,9 @@ func main() {
 			}
 			if len(canvasSize_int) != 2 || (canvasSize_int[0] == 0 || canvasSize_int[1] == 0) {
 				clear()
-				prtErr("invalid canvas size", "exiting to console")
-				os.Exit(1)
+				prtErr("invalid canvas size", "defaulting to 3,3")
+				canvasSize_int = [2]int{3, 3}
+				sep()
 			}
 
 			canvas := make([][]int, canvasSize_int[0])
@@ -303,8 +304,7 @@ func main() {
 							content += "\n"
 						}
 
-						cuh, _ := user.Current()
-						content += "time created: " + strings.Split(time.Now().String(), ".")[0] + "\nmade by: " + cuh.Username + "\n"
+						content += "time created: " + strings.Split(time.Now().String(), ".")[0] + "\nmade by: a very awesome person\n"
 						_, _ = file.WriteString(content)
 
 						clear()
@@ -325,17 +325,21 @@ func main() {
 			}
 		} else if input == 2 {
 			clear()
-			fmt.Println("blindpaint version " + VERSION + ".\ncrafted with much love and detail by greg <3")
+			fmt.Println("blindpaint version " + VERSION + `.
+blindpaint is open-source and licensed under GPL v3.0
+you can redistribute this app as long as you maintain the same license and credit me (greg).
+join our lovely discord built off of another server! discord.gg/c2KTVEgxBn`)
+			/* 																																																do it i BEG of you. */
 			sep()
 		} else if input == 3 {
 			clear()
 			fmt.Println(`HOW TO BLINDPAINT - a tutorial by greg.
 
 1. on the main menu, press 1
- this is to start the main part blindpaint.
+ this is to start the main part of blindpaint
 
 2. on the canvas selection, put a value like 3,3 or 5,5
- don't get greedy; saving might cause memory issues and a deformed canvas!
+ don't get greedy; saving as txt might cause memory issues and a deformed canvas!
 
 3. on the actions menu, select 1
  to choose a pixel to paint
@@ -349,13 +353,16 @@ func main() {
 6. repeat steps 3, 4 and 5
  to fill your canvas with art, obviously!
  
-7. after you've finished, save your masterpiece by pressing 2 on the actions menu
- i think you know what you need to do.
+7. after you've finished, save your masterpiece
+ by pressing 0 on the actions menu!
+
+8. choose a filetype
+ tip: png saves faster, even when upscaled 10x!
  
-8. check the piece of art you've created!
- same here
+9. check the piece of art you've created!
+ it's not going to be good, but you tried
  
-9. (optional) repeat previous steps
+10. (optional) repeat previous steps
  until you get good!
 
 thanks for using blindpaint, i (greg) appreciate it, and i mean it :,)`)
