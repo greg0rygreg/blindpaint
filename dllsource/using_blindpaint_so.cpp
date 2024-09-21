@@ -1,5 +1,5 @@
 #include <stdio.h>
-// to use blindpaint dll you must reference the header file
+// to use the blindpaint lib you must reference the header file
 #include "blindpaint.hpp"
 
 //then make a main() func
