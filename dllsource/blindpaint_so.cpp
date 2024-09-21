@@ -26,11 +26,7 @@ extern "C" {
         file << "(tip: use a font that has letters with the same width!)\n\n";
         for (const auto& row : canvas) {
             for (int pixel : row) {
-                if (pixel == 1) {
-                    file << "■ ";
-                } else {
-                    file << "□ ";
-                }
+               file << (pixel == 1 ? "■ " : "□ ");
             }
             file << "\n";
         }
