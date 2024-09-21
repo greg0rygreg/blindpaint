@@ -37,4 +37,4 @@ blindpaint.freeCanvas(canvas, col)
 # python3 python_version.py
 # or if you have python 3.11 installed like me:
 # python3.11 python_version.py
-# DO NOT FORGET TO PUT THE BLINDPAINT LIB IN THE SAME DIRECTORY AS OF THE MAIN SOURCE FILE!!!
+# DO NOT FORGET TO PUT THE BLINDPAINT LIB IN THE SAME DIRECTORY AS OF THIS FILE!!!
