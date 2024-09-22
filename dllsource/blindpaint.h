@@ -1,5 +1,5 @@
-#ifndef BLINDPAINT_HPP
-#define BLINDPAINT_HPP
+#ifndef BLINDPAINT_H
+#define BLINDPAINT_H
 
 #include <vector>
 #include <string>
