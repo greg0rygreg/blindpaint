@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <boost/algorithm/string.hpp>
 
 namespace blindpaint {
     std::vector<std::vector<int>> makeCanvas(int rows, int cols) {

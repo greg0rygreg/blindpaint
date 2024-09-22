@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <iostream>
 // to use the blindpaint lib you must reference the header file
 #include "blindpaint.hpp"
 

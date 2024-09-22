@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"image"
 	"image/color"
+	"math"
 	"math/rand"
 	"os"
 	"path/filepath"
@@ -55,6 +56,28 @@ func inargs(arg1 string, arg2 string) bool {
 		return true
 	}
 	return false
+}
+
+// Cuh...
+func fillRegion(canvas [][]int, x1, y1, x2, y2, val int) {
+	startX := int(math.Min(float64(x1), float64(x2)))
+	endX := int(math.Max(float64(x1), float64(x2)))
+	startY := int(math.Min(float64(y1), float64(y2)))
+	endY := int(math.Max(float64(y1), float64(y2)))
+
+	rows := len(canvas)
+	cols := len(canvas[0])
+
+	startX = int(math.Max(0, float64(startX)))
+	endX = int(math.Min(float64(rows-1), float64(endX)))
+	startY = int(math.Max(0, float64(startY)))
+	endY = int(math.Min(float64(cols-1), float64(endY)))
+
+	for i := startX; i <= endX; i++ {
+		for j := startY; j <= endY; j++ {
+			canvas[i][j] = val
+		}
+	}
 }
 
 func main() {
@@ -166,10 +189,12 @@ func main() {
 │╭╮│╰─┤╰┤│╰╯│││├──│╭╮
 ├╯╰┴──┴─┴┴──┴╯╰┴──╯╰╯
 ├(1) paint a pixel.
+├(2) fill a region.
 └(0) finish and leave to main menu.
 >> `)
 				fmt.Scan(&input_canvas)
 				var toPaintPos2 [2]int
+				var toPaintPos3 [2]int
 				if input_canvas == 1 {
 					clear()
 
@@ -240,6 +265,74 @@ func main() {
 
 					clear()
 					fmt.Println("successfully painted pixel.")
+					sep()
+				} else if input_canvas == 2 {
+					clear()
+					var input_pos1 string
+					canvas_xlen := strconv.Itoa(len(canvas))
+					canvas_ylen := strconv.Itoa(len(canvas[0]))
+					fmt.Printf("input position 1 (1-" + canvas_xlen + ",1-" + canvas_ylen + ").\n>> ")
+					fmt.Scan(&input_pos1)
+
+					toPaintPos := strings.Split(input_pos1, ",")
+					for i, num := range toPaintPos {
+						cuh, _ := strconv.Atoi(num)
+						toPaintPos2[i] = cuh - 1
+					}
+
+					clear()
+
+					if toPaintPos2[0]+1 < 1 || toPaintPos2[0]+1 > len(canvas) {
+						prtErr("X position out of range", "defaulting to 1")
+						toPaintPos2[0] = 0
+						sep()
+					}
+
+					if toPaintPos2[1]+1 < 1 || toPaintPos2[1]+1 > len(canvas[0]) {
+						prtErr("Y position out of range", "defaulting to 1")
+						toPaintPos2[1] = 0
+						sep()
+					}
+
+					var input_pos2 string
+					fmt.Printf("input position 2 (1-" + canvas_xlen + ",1-" + canvas_ylen + ").\n>> ")
+					fmt.Scan(&input_pos2)
+
+					toPaintPos = strings.Split(input_pos2, ",")
+					for i, num := range toPaintPos {
+						cuh, _ := strconv.Atoi(num)
+						toPaintPos3[i] = cuh - 1
+					}
+
+					clear()
+
+					if toPaintPos3[0]+1 < 1 || toPaintPos3[0]+1 > len(canvas) {
+						prtErr("X position out of range", "defaulting to 1")
+						toPaintPos3[0] = 0
+						sep()
+					}
+
+					if toPaintPos3[1]+1 < 1 || toPaintPos3[1]+1 > len(canvas[0]) {
+						prtErr("Y position out of range", "defaulting to 1")
+						toPaintPos3[1] = 0
+						sep()
+					}
+
+					var input_paint int
+					fmt.Printf("input pixel color 1 or 0 (1:white; 0:black).\n>> ")
+					fmt.Scan(&input_paint)
+
+					if input_paint < 0 || input_paint > 1 {
+						clear()
+						prtErr("pixel color out of range", "defaulting to 0")
+						input_paint = 0
+						sep()
+					}
+
+					fillRegion(canvas, toPaintPos2[0], toPaintPos2[1], toPaintPos3[0], toPaintPos3[1], input_paint)
+
+					clear()
+					fmt.Println("successfully filled region.")
 					sep()
 
 				} else if input_canvas == 0 {

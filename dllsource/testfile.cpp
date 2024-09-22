@@ -1,8 +1,8 @@
 //this was made to test new features without interfering with the using_blindpaint_so.cpp file.
-#include <stdio.h>
 #include "blindpaint.hpp"
+#include <cstring>
 
-int main() {
+int main(int argc, char *argv[]) {
     int row = 10, col = 10;
     auto canvas = blindpaint::makeCanvas(row,col);
 
