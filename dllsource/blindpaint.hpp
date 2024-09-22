@@ -53,13 +53,6 @@ namespace blindpaint {
     /// @param y2 ending y position
     /// @param val the value to paint area with
     void fillRegion(std::vector<std::vector<int>>& canvas, int x1, int y1, int x2, int y2, int val);
-
-    /// @brief misc category for other things
-    ///
-    /// miscellaneous namespace for other things like `convertToXY`.
-    namespace misc {
-        std::pair<int, int> convertToXY(const std::string &str);
-    }
 }
 
 #endif

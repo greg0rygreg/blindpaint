@@ -2,7 +2,6 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <boost/algorithm/string.hpp>
 
 namespace blindpaint {
     std::vector<std::vector<int>> makeCanvas(int rows, int cols) {
@@ -65,6 +64,5 @@ namespace blindpaint {
 *
 * if you want to export this file yourself, run this command:
 * g++ -shared -fPIC -o blindpaint.so blindpaint_so.cpp
-*
 * or if on windows, change "so" in "blindpaint.so" to "dll"
 */
