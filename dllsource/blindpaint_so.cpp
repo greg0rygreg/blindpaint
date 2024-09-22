@@ -2,7 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include "blindpaint.h"
+#include "blindpaint.hpp"
 
 namespace blindpaint {
     Canvas::Canvas(int rows, int cols) : pixels(rows, std::vector<int>(cols, 0)) {}
@@ -50,6 +50,28 @@ namespace blindpaint {
             }
         }
     }
+
+    ////////////////////////////////////////////////// C IMPLEMENTATION STARTS HERE //////////////////////////////////////////////////
+
+    Canvas* makeCanvas(int rows, int cols) {
+        return new Canvas(rows, cols);
+    }
+
+    void paintPixel(Canvas* canvas, int x, int y, int val) {
+        canvas->paintPixel(x, y, val);
+    }
+
+    void fillRegion(Canvas* canvas, int x1, int y1, int x2, int y2, int val) {
+        canvas->fillRegion(x1, y1, x2, y2, val);
+    }
+
+    void saveCanvas(Canvas* canvas, const char* filename) {
+        canvas->save(filename);
+    }
+
+    void freeCanvas(Canvas* canvas) {
+        delete canvas;
+    }
 }
 
 /* 
@@ -59,5 +81,4 @@ namespace blindpaint {
 *
 * if you want to export this file yourself, run this command:
 * g++ -shared -fPIC -o blindpaint.so blindpaint_so.cpp
-* or if on windows, change "so" in "blindpaint.so" to "dll"
 */

@@ -1,6 +1,6 @@
 //this was made to test new features without interfering with the using_blindpaint_so.cpp file.
 #include <iostream>
-#include "blindpaint.h"
+#include "blindpaint.hpp"
 
 int main(int argc, char *argv[]) {
     int row = 10, col = 10;
@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
     canvas.fillRegion(1,1, 8,8, 1);
     canvas.fillRegion(2,2, 7,7, 0);
 
-    canvas.save("example.txt");
+    canvas.save("testing.txt");
 
     return 0;
 }

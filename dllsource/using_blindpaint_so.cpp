@@ -1,6 +1,6 @@
 #include <iostream>
 // to use the blindpaint lib you must reference the header file
-#include "blindpaint.h"
+#include "blindpaint.hpp"
 
 //then make a main() func
 int main() {
