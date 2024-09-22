@@ -19,7 +19,7 @@ or use the newly added shared object (`so`) library that i've prepared for 1.0! 
 ## other notes
 this was made as a way of ~~messing around and finding out but for painting~~ painting for unriced arch linux users
 
-this ISN'T a virus, don't listen to media people. blindpaint is virus free, here's the windows x64 executable sha1sum hash as of 1.0 if you want to check it yourself: `bc1e5a05a178cb4582a5159c83b7f05e31c9f60e`
+this ISN'T a virus, don't listen to media people. blindpaint is virus free, here's the windows x64 executable sha1sum hash as of 1.3 if you want to check it yourself: `8c38a9dfcb07b516312e3d7fa69c14f4aa8fc5a2`
 
 join our discord server! [here](https://discord.gg/c2KTVEgxBn), it's NOT a scam site, it's actual discord.
 
