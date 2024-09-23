@@ -20,7 +20,7 @@ namespace blindpaint {
             Canvas(int rows, int cols);
             /// @brief paint a pixel at position `x,y` on current canvas with pixel value `val`
             ///
-            /// this function will return nothing, but will paint a pixel at position `x,y` of the current canvas with value `val`.
+            /// this function paints a pixel at position `x,y` of the current canvas with value `val`.
             /// keep in mind that `val` only takes 0 or 1.
             /// 
             /// @param x the x position to paint at
@@ -37,7 +37,7 @@ namespace blindpaint {
             
             /// @brief fill a region from position `x1,y1` to `x2,y2` on current canvas with pixel value `val`
             ///
-            /// this function will return nothing, but will fill a specified area from position `x1,y1` to position `x2,y2` with value `val`.
+            /// this function fills a specified area from position `x1,y1` to position `x2,y2` with value `val`.
             /// 
             /// keep in mind that `val` only takes 0 or 1,
             /// and `x#` and `y#` parameters will stay inbound relative to the current canvas.
@@ -62,9 +62,7 @@ namespace blindpaint {
         /// @brief free memory from a canvas
         ///
         /// (C/PYTHON ONLY) clear the reserved memory for canvas `canvas`.
-        /// useful if you don't want to deal with
-        ///
-        /// using `free()` (or something).
+        /// useful if you don't want to deal with using `free()` (or something).
         /// @param canvas the canvas to free memory from
         void freeCanvas(Canvas* canvas);
     }
