@@ -24,4 +24,4 @@ this ISN'T a virus, don't listen to media people. blindpaint is virus free, here
 join our discord server! [here](https://discord.gg/c2KTVEgxBn), it's NOT a scam site, it's actual discord.
 
 ## future notes
-~~if blindpaint ever gets cancelled, a DLL/`.so` file will be made so that YOU can remake blindpaint in other languages, like python (by using ctypes)!~~ already made the lib for blindpaint
+someone PLEASE make AI powered blindpaint i would LOVE to see how the art turns out
