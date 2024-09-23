@@ -12,9 +12,9 @@
 namespace blindpaint {
     /// @brief the main part of the blindpaint API
     ///
-    /// this class called `Canvas` defines a canvas that soon will have some art on it.
+    /// this class called `Canvas` defines a canvas that soon will have some art on it (or not).
     class Canvas {
-        /// @brief wuh
+        /// array of pixels for the `Canvas` class.
         std::vector<std::vector<int>> pixels;
         public:
             Canvas(int rows, int cols);
@@ -30,7 +30,7 @@ namespace blindpaint {
             
             /// @brief export current canvas to file `filename`
             ///
-            /// this function will return nothing, but will export the current canvas to the file with name specified in `filename`.
+            /// this function exports the current canvas to the file with name specified in `filename`.
             ///
             /// @param filename the name of the file to export to
             void save(const std::string &filename);
@@ -51,6 +51,7 @@ namespace blindpaint {
     };
     extern "C" {
         /// @brief same as the C++ variant
+        /// @return `blindpaint::Canvas*` - there were no errors and a canvas was created successfully.
         Canvas* makeCanvas(int rows, int cols);
         /// @brief same as the C++ variant
         void paintPixel(Canvas* canvas, int x, int y, int val);
@@ -58,7 +59,12 @@ namespace blindpaint {
         void saveCanvas(Canvas* canvas, const char* filename);
         /// @brief same as the C++ variant
         void fillRegion(Canvas* canvas, int x1, int y1, int x2, int y2, int val);
-        /// @brief free memory reserved for a canvas upon doing everything there is to do with it
+        /// @brief free memory from a canvas
+        ///
+        /// (C/PYTHON ONLY) clear the reserved memory for canvas `canvas`.
+        /// useful if you don't want to deal with
+        ///
+        /// using `free()` (or something).
         /// @param canvas the canvas to free memory from
         void freeCanvas(Canvas* canvas);
     }
