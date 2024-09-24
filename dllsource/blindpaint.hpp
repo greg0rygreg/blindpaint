@@ -48,6 +48,11 @@ namespace blindpaint {
             /// @param y2 ending y position
             /// @param val the value to paint area with
             void fillRegion(int x1, int y1, int x2, int y2, int val);
+            /// @brief export current canvas to file `filename`
+            ///
+            /// this function exports the current canvas to the PNG image specified in `filename`.
+            /// @param filename the PNG image to export to
+            void savePng(const std::string &filename);
     };
     extern "C" {
         /// @brief same as the C++ variant
@@ -65,6 +70,8 @@ namespace blindpaint {
         /// useful if you don't want to deal with using `free()` (or something).
         /// @param canvas the canvas to free memory from
         void freeCanvas(Canvas* canvas);
+        /// @brief same as the C++ variant
+        void saveCanvasPng(Canvas* canvas, const char* filename);
     }
 }
 

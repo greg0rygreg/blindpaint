@@ -19,7 +19,10 @@ blindpaint.fillRegion(canvas, 2,0, 2,2, 1)
 # (makes a face like in the C++ variant)
 
 # export the canvas
-blindpaint.saveCanvas(canvas, b"python.txt")
+blindpaint.saveCanvasPng(canvas, b"python.txt")
+
+# you can also save to txt (legacy purposes)
+# blindpaint.saveCanvas(canvas, b"example.txt")
 
 # important...? free the memory
 blindpaint.freeCanvas(canvas)

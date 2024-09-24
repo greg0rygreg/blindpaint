@@ -3,12 +3,16 @@
 #include <fstream>
 #include <vector>
 #include "blindpaint.hpp"
+// oh yeah also you need to download stb image write header file
+#define STB_IMAGE_WRITE_IMPLEMENTATION
+#include "stb_image_write.h"
 
 namespace blindpaint {
     Canvas::Canvas(int rows, int cols) : pixels(rows, std::vector<int>(cols, 0)) {}
     void Canvas::paintPixel(int x, int y, int val) {
         if (val >= 2 || val < 0) {
-            std::cerr << "\x1b[1;31merror:\x1b[39m unknown pixel value of " << val << " detected \x1b[0m\n";
+            std::cerr << "\x1b[1;31merror:\x1b[39m unknown pixel value of " << val << " detected \x1b[0m(defaulting to 1)\n";
+            val = 1;
         }
         pixels[x][y] = val;
     }
@@ -30,7 +34,8 @@ namespace blindpaint {
     void Canvas::fillRegion(int x1, int y1, int x2, int y2, int val) {
         // yes i used ChatGPT to make this (don't blame me it's 2 hours before midnight as of writing (september 21st 2024 10:23 PM))
         if (val >= 2 || val < 0) {
-            std::cerr << "\x1b[1;31merror:\x1b[39m unknown pixel value of " << val << " detected \x1b[0m\n";
+            std::cerr << "\x1b[1;31merror:\x1b[39m unknown pixel value of " << val << " detected \x1b[0m(defaulting to 1)\n";
+            val = 1;
         }
         int startX = std::min(x1, x2);
         int endX = std::max(x1, x2);
@@ -49,6 +54,24 @@ namespace blindpaint {
                 pixels[i][j] = val;
             }
         }
+    }
+
+    void Canvas::savePng(const std::string &filename) {
+        int h = pixels.size();
+        int w = pixels[0].size();
+        std::vector<unsigned char> image(w * h * 3);
+
+
+        for (int y = 0; y < h; y++) {
+            for (int x = 0; x < w; x++) {
+                image[(y * w + x) * 3 + 0] = pixels[y][x] * 255;
+                image[(y * w + x) * 3 + 1] = pixels[y][x] * 255;
+                image[(y * w + x) * 3 + 2] = pixels[y][x] * 255;
+            }
+        }
+
+
+        stbi_write_png(filename.c_str(), w, h, 3, image.data(), w * 3);
     }
 
     ////////////////////////////////////////////////// C IMPLEMENTATION STARTS HERE //////////////////////////////////////////////////
@@ -71,6 +94,10 @@ namespace blindpaint {
 
     void freeCanvas(Canvas* canvas) {
         delete canvas;
+    }
+
+    void saveCanvasPng(Canvas* canvas, const char* filename) {
+        canvas->savePng(filename);
     }
 }
 

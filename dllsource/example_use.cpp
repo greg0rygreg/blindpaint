@@ -15,7 +15,10 @@ int main() {
     canvas.fillRegion(2,0, 2,2, 1);
 
     // export the canvas
-    canvas.save("example.txt");
+    canvas.savePng("example.png");
+
+    // you can also save to txt (legacy purposes)
+    // canvas.save("example.txt");
 
     // i don't think you need to free the memory when using C++...
 

@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
     canvas.fillRegion(1,1, 8,8, 1);
     canvas.fillRegion(2,2, 7,7, 0);
 
-    canvas.save("testing.txt");
+    canvas.savePng("testing.png");
 
     return 0;
 }
