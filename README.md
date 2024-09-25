@@ -1,4 +1,4 @@
-# blindpaint
+# blindpaint.
 blindly paint things.
 
 blindpaint is a console app developed by greg (me) in Golang (Python and C++ too but that's for the dll)
@@ -21,7 +21,7 @@ this was made as a way of ~~messing around and finding out but for painting~~ pa
 
 this ISN'T a virus, don't listen to media people. blindpaint is virus free, here's the windows x64 executable sha1sum hash as of 1.3 if you want to check it yourself: `8c38a9dfcb07b516312e3d7fa69c14f4aa8fc5a2`
 
-join our discord server! [here](https://discord.gg/c2KTVEgxBn), it's NOT a scam site, it's actual discord.
+join our discord server! [here](https://discord.gg/c2KTVEgxBn), it's NOT a scam site, it's actual discord
 
 ## future notes
 someone PLEASE make AI powered blindpaint i would LOVE to see how the art turns out
