@@ -82,7 +82,7 @@ func fillRegion(canvas [][]int, x1, y1, x2, y2, val int) {
 
 func main() {
 	if inargs("-h", "--help") {
-		fmt.Println(`this isn't a command line tool but ok.
+		fmt.Println(`this isn't a command line tool but ok
 -h --help           shows this message
 -nw --no-welcome    the app won't welcome you
 -d --debug          debug mode, print the list of pixels on save`)
@@ -106,8 +106,8 @@ func main() {
 	os.MkdirAll(blindpaint_appdata_dir, os.ModePerm)
 	byemsgs := []string{"bye!", "cya : )", ":3", "...",
 		"i hope you painted something. i have no idea if you did. i just hope you did.", "see you next time!", "thanks for using this console app!",
-		"i'm surprised someone actually downloads from my (greg) repos.", "keep blindpainting! i'm sure you'll get better : )", "don't forget to join our discord!",
-		"don't use this app if you're tired! you might end up falling asleep."}
+		"i'm surprised someone actually downloads from my (greg) repos", "keep blindpainting! i'm sure you'll get better : )",
+		"don't forget to join our discord!"}
 	welcomemsgs := []string{"welcome back to", "did you train your blindpainting skills? anyway, welcome back to", "...", ":3", "press 2 to get the invite for our discord!",
 		"you learned how it works yet? welcome back to", "welcome back to blindpai- oh sorry i didn't notice the logo was below me... mistakes happen : )\nanyway, welcome back to",
 	}
@@ -128,34 +128,34 @@ func main() {
 		if pluh == nil {
 			fmt.Println(welcomemsgs[randomWelcome])
 		} else {
-			fmt.Println("welcome to blindpaint! if this is your first time, type 3 for the tutorial.")
+			fmt.Println("welcome to blindpaint! if this is your first time, type 3 for the tutorial")
 		}
 		os.Create(has_been_welcomed)
 	}
 	for {
-		title("blindpaint - main menu.")
+		title("blindpaint. - main menu")
 		// why.
-		fmt.Printf(`╭╮ ╭╮      ╭╮   a greg╭╮project.
+		fmt.Printf(`╭╮ ╭╮      ╭╮   a greg╭╮project
 ││ ││      ││        ╭╯╰╮
 │╰─┤│╭┬──┬─╯├──┬──┬┬─┴╮╭╯(c)
 │╭╮││├┤╭╮│╭╮│╭╮│╭╮├┤╭╮││
 │╰╯│╰┤││││╰╯│╰╯│╭╮│││││╰╮╭╮
 ├──┴─┴┴╯╰┴──┤╭─┴╯╰┴┴╯╰┴─╯╰╯
 │   blindly ││aint things.
-│  made with╰╯Golang.
-├(1) new canvas.
-├(2) info.
-├(3) tutorial.
-└(0) exit.
+│  made with╰╯Golang
+├(1) new canvas
+├(2) info
+├(3) tutorial
+└(0) exit
 >> `)
 		var input int
 		fmt.Scan(&input)
 		if input == 1 {
 			clear()
-			title("blindpaint - new canvas.")
+			title("blindpaint. - new canvas")
 
 			var canvasSize string
-			fmt.Printf("input canvas size (eg. 3,3).\n>> ")
+			fmt.Printf("input canvas size (eg. 3,3)\n>> ")
 			fmt.Scan(&canvasSize)
 
 			canvasSize2 := strings.Split(canvasSize, ",")
@@ -179,18 +179,18 @@ func main() {
 			clear()
 
 			for {
-				title("blindpaint - " + strings.Join(canvasSize2, "x") + " canvas.")
+				title("blindpaint. - " + strings.Join(canvasSize2, "x") + " canvas")
 				var input_canvas int
 				//you can't be serious.
 				fmt.Printf(`      ╭╮
      ╭╯╰╮
 ╭──┬─┴╮╭┼┬──┬──┬──╮
 │╭╮│╭─┤│├┤╭╮│╭╮│──┤
-│╭╮│╰─┤╰┤│╰╯│││├──│╭╮
-├╯╰┴──┴─┴┴──┴╯╰┴──╯╰╯
-├(1) paint a pixel.
-├(2) fill a region.
-└(0) finish and leave to main menu.
+│╭╮│╰─┤╰┤│╰╯│││├──│
+├╯╰┴──┴─┴┴──┴╯╰┴──╯
+├(1) paint a pixel
+├(2) fill a region
+└(0) finish and leave to main menu
 >> `)
 				fmt.Scan(&input_canvas)
 				var toPaintPos2 [2]int
@@ -227,7 +227,7 @@ func main() {
 					var input_pos string
 					canvas_xlen := strconv.Itoa(len(canvas))
 					canvas_ylen := strconv.Itoa(len(canvas[0]))
-					fmt.Printf("input position (1-" + canvas_xlen + ",1-" + canvas_ylen + ").\n>> ")
+					fmt.Printf("input position (1-" + canvas_xlen + ",1-" + canvas_ylen + ")\n>> ")
 					fmt.Scan(&input_pos)
 
 					toPaintPos := strings.Split(input_pos, ",")
@@ -251,7 +251,7 @@ func main() {
 					}
 
 					var input_paint int
-					fmt.Printf("input pixel color 1 or 0 (1:white; 0:black).\n>> ")
+					fmt.Printf("input pixel color 1 or 0 (1:white; 0:black)\n>> ")
 					fmt.Scan(&input_paint)
 
 					if input_paint < 0 || input_paint > 1 {
@@ -264,14 +264,14 @@ func main() {
 					canvas[toPaintPos2[0]][toPaintPos2[1]] = input_paint
 
 					clear()
-					fmt.Println("successfully painted pixel.")
+					fmt.Println("successfully painted pixel")
 					sep()
 				} else if input_canvas == 2 {
 					clear()
 					var input_pos1 string
 					canvas_xlen := strconv.Itoa(len(canvas))
 					canvas_ylen := strconv.Itoa(len(canvas[0]))
-					fmt.Printf("input position 1 (1-" + canvas_xlen + ",1-" + canvas_ylen + ").\n>> ")
+					fmt.Printf("input position 1 (1-" + canvas_xlen + ",1-" + canvas_ylen + ")\n>> ")
 					fmt.Scan(&input_pos1)
 
 					toPaintPos := strings.Split(input_pos1, ",")
@@ -295,7 +295,7 @@ func main() {
 					}
 
 					var input_pos2 string
-					fmt.Printf("input position 2 (1-" + canvas_xlen + ",1-" + canvas_ylen + ").\n>> ")
+					fmt.Printf("input position 2 (1-" + canvas_xlen + ",1-" + canvas_ylen + ")\n>> ")
 					fmt.Scan(&input_pos2)
 
 					toPaintPos = strings.Split(input_pos2, ",")
@@ -332,7 +332,7 @@ func main() {
 					fillRegion(canvas, toPaintPos2[0], toPaintPos2[1], toPaintPos3[0], toPaintPos3[1], input_paint)
 
 					clear()
-					fmt.Println("successfully filled region.")
+					fmt.Println("successfully filled region")
 					sep()
 
 				} else if input_canvas == 0 {
@@ -340,7 +340,7 @@ func main() {
 					var input_fn string
 					var input_fnt int
 
-					fmt.Printf("choose type to save to.\n├(1) png (\x1b[31mWARNING: MAY NOT WORK\x1b[0m)\n└(2) txt\n>> ")
+					fmt.Printf("choose type to save to\n├(1) png (\x1b[31mWARNING: MAY NOT WORK\x1b[0m)\n└(2) txt\n>> ")
 					fmt.Scan(&input_fnt)
 					clear()
 
@@ -365,7 +365,7 @@ func main() {
 							scaledImg = imaging.Resize(img, canvasSize_int[0]*10, canvasSize_int[1]*10, imaging.NearestNeighbor)
 						}
 
-						fmt.Println("saving your image, this might take a while on bad pcs with big canvas sizes.")
+						fmt.Println("saving your image, this might take a while on bad pcs with big canvas sizes")
 						if strings.ToLower(input_upscale) == "y" {
 							imaging.Save(scaledImg, input_fn+".png")
 						} else {
@@ -418,15 +418,15 @@ func main() {
 			}
 		} else if input == 2 {
 			clear()
-			fmt.Println("blindpaint version " + VERSION + `.
+			fmt.Println("blindpaint. version " + VERSION + `
 blindpaint is open-source and licensed under GPL v3.0
-you can redistribute this app as long as you maintain the same license and credit me (greg).
+you can redistribute this app as long as you maintain the same license and credit me (greg)
 join our lovely discord built off of another server! discord.gg/c2KTVEgxBn`)
 			/* 																																																do it i BEG of you. */
 			sep()
 		} else if input == 3 {
 			clear()
-			fmt.Println(`HOW TO BLINDPAINT - a tutorial by greg.
+			fmt.Println(`HOW TO BLINDPAINT - a tutorial by greg
 
 1. on the main menu, press 1
  this is to start the main part of blindpaint

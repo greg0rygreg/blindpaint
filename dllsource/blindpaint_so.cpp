@@ -3,12 +3,14 @@
 #include <fstream>
 #include <vector>
 #include "blindpaint.hpp"
-// oh yeah also you need to download stb image write header file
+#include <ctime>
+// oh yeah also you need to download stb image write header file to both compile and use the so
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
 
 namespace blindpaint {
     Canvas::Canvas(int rows, int cols) : pixels(rows, std::vector<int>(cols, 0)) {}
+
     void Canvas::paintPixel(int x, int y, int val) {
         if (val >= 2 || val < 0) {
             std::cerr << "\x1b[1;31merror:\x1b[39m unknown pixel value of " << val << " detected \x1b[0m(defaulting to 1)\n";
@@ -17,6 +19,7 @@ namespace blindpaint {
         pixels[x][y] = val;
     }
     void Canvas::save(const std::string &filename) {
+        time_t currtime = time(0);
         std::ofstream file(filename);
         if (!file.is_open()) {
             std::cerr << "\x1b[1;31merror:\x1b[39m exporting canvas to file " << filename << " failed \x1b[0m\n";
@@ -28,7 +31,8 @@ namespace blindpaint {
             }
             file << "\n";
         }
-        file << "time created: not yet implemented!\nmade by: a very awesome person\n";
+        char* dt = ctime(&currtime);
+        file << "time created: " << dt << "made by: a very awesome person\n";
     }
         
     void Canvas::fillRegion(int x1, int y1, int x2, int y2, int val) {
@@ -57,6 +61,7 @@ namespace blindpaint {
     }
 
     void Canvas::savePng(const std::string &filename) {
+        // i too used chatgpt to make this
         int h = pixels.size();
         int w = pixels[0].size();
         std::vector<unsigned char> image(w * h * 3);
