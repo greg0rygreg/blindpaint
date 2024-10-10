@@ -34,7 +34,7 @@ namespace blindpaint
         {
             for (int pixel : row)
             {
-                file << (pixel == 1 ? "■ " : "□ ");
+                file << (pixel == 1 ? "#" : " ");
             }
             file << "\n";
         }
