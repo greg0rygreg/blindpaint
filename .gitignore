@@ -1,0 +1,7 @@
+./blindpaint-64
+./blindpaint-32
+./blindpaint-win64.exe
+./blindpaint-win32.exe
+./dllsource/blindpaint.so
+dllsource/python*.*
+dllsource/example*.*
