@@ -29,7 +29,7 @@ namespace blindpaint
         {
             std::cerr << "\x1b[1;31merror:\x1b[39m exporting canvas to file " << filename << " failed \x1b[0m\n";
         }
-        file << "(tip: use a font that has letters with the same width!)\n\n";
+        file << "(tip: use a font that has letters with the same width!)\n";
         for (const auto &row : pixels)
         {
             for (int pixel : row)
@@ -39,7 +39,7 @@ namespace blindpaint
             file << "\n";
         }
         char *dt = ctime(&currtime);
-        file << "time created: " << dt << "made by: a very awesome person\n";
+        file << "\ntime created: " << dt << "made by: a very awesome person\n";
     }
 
     void Canvas::fillRegion(int x1, int y1, int x2, int y2, int val)
