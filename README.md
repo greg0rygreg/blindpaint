@@ -18,3 +18,6 @@ go run .
 
 ## where did the other README go
 rebase issues.............. i hate git
+
+## more
+check out [DRAWscii](https://github.com/greg0rygreg/drawscii), blindpaint 2
