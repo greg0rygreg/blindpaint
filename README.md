@@ -1,3 +1,6 @@
+# READ THIS FIRST
+this is probably already know but i'm NOT updating blindpaint anymore
+
 # blindpaint
 blindly paint things.
 
